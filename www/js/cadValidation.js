@@ -1,14 +1,10 @@
 //Do this as soon as the DOM is ready
 $(document).ready(function() {
 
-  var config = {
-    server: "https://bluesky-safe-software.fmecloud.com",
-    token: "66da6d2b1f4b4681451a8f9043ad653a756fdb03"
-  };
-  
-  $('#loadingImage').hide();
-  
-  initialize(config);
+    $.getJSON("http://demos.fmeserver.com.s3.amazonaws.com/server-demo-config.json", function(config) {
+        $('#loadingImage').hide();
+        initialize(config);
+    });
 	
 });
 
@@ -35,8 +31,8 @@ var initialize = function (config) {
 
 
 var BuildForm = {
-	repository : 'DaleCADDemo',
-	workspaceName : 'validate.fmw',
+	repository : 'Demos',
+	workspaceName : 'validate-direct.fmw',
 	session : null,
 	path : null,
 
