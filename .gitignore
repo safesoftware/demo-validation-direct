@@ -1,0 +1,4 @@
+*.recover
+*.log
+*_log.ffs
+.DS_Store

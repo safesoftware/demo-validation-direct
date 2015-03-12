@@ -1,0 +1,8 @@
+{
+	"email_publisher_to": "foo@example.com",
+	"email_publisher_from": "bar@example.com",
+	"email_publisher_subject": "Sending CAD to You!",
+	"email_publisher_received": "Today",
+	"email_publisher_sent": "Today",
+	"email_publisher_attachment{0}": "C:/safegit/fmepedia-validation/www/download/distribution_N25_good.dwg"
+}
