@@ -5,20 +5,20 @@ $(document).ready(function() {
         $('#loadingImage').hide();
         initialize(config.initObject);
     });
-	
+
 });
 
 var initialize = function (config) {
 	FMEServer.init(config);
-  
+
   BuildForm.token = config.token;
   BuildForm.host = config.server;
-	
+
 	//Call server and get the session ID and path
 	FMEServer.getSession(BuildForm.repository, BuildForm.workspaceName, function(json){
 		BuildForm.session = json.serviceResponse.session;
 		BuildForm.path = json.serviceResponse.files.folder[0].path;
-		
+
 		//Call server to get list of parameters and potential values
 		FMEServer.getWorkspaceParameters(BuildForm.repository, BuildForm.workspaceName, BuildForm.buildParams);
 
@@ -26,7 +26,7 @@ var initialize = function (config) {
 		BuildForm.init();
 
 	});
-  
+
 };
 
 
@@ -56,11 +56,12 @@ var BuildForm = {
 		//--------------------------------------------------------------
 		//control behaviour of the fileuploader
 		$('#fileupload').fileupload({
-			url : BuildForm.host + '/fmedataupload/' + BuildForm.repository + '/' +  BuildForm.workspaceName + ';jsessionid=' + BuildForm.session,
+			url : BuildForm.host + '/fmedataupload/' + BuildForm.repository + '/' +  BuildForm.workspaceName,
+			headers : {'Authorization' : 'fmetoken token=' + BuildForm.token},
 			dropzone : $('#dropzone'),
 			autoUpload : true,
 
-			//when a new file is added either through drag and drop or 
+			//when a new file is added either through drag and drop or
 			//file selection dialog
 			add : function(e, data){
 				//displays filename and progress bar for any uploading files
@@ -91,7 +92,7 @@ var BuildForm = {
 			},
 
 			done : function(e, data){
-				//update list of uploaded files with button to select 
+				//update list of uploaded files with button to select
 				//them as source datasets for translation
 				var elemName = data.files[0].name;
 				elemName = elemName.replace(/[.\(\)]/g, '');
@@ -99,7 +100,7 @@ var BuildForm = {
 
 				var test = 'stop';
         BuildForm.submit();
-			}, 
+			},
 
 			fail : function(e, data) {
 				$.each(data.result.files, function(index, file) {
@@ -164,8 +165,8 @@ var BuildForm = {
 	},
 
 	submit : function() {
-    
-    var files = '"'; 
+
+    var files = '"';
 		var fileList = $('.fileRow');
 
 		//check a file has been uploaded and at least one is selected
@@ -190,7 +191,7 @@ var BuildForm = {
 
 				//submit
 				$.ajax(submitUrl)
-					.done(function(result){					
+					.done(function(result){
 						 BuildForm.displayResults(result, true);
 					})
 					.fail(function(textStatus){
@@ -203,7 +204,7 @@ var BuildForm = {
 	displayResults : function(result, isSuccess){
 		//hide loading image
 		$('#loadingImage').hide();
-    
+
     //hide upload area
     $('#dropzone').hide();
     $('#submitToServer').hide();
