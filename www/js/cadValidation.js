@@ -1,10 +1,13 @@
+if (location.protocol != 'https:')
+  {
+    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+  }
+
+
 //Do this as soon as the DOM is ready
 $(document).ready(function() {
 
-  if (location.protocol != 'https:')
-    {
-      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
+
 
     $.getJSON("https://demos.fmeserver.com/server-demo-config.json", function(config) {
         $('#loadingImage').hide();
