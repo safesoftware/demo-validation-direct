@@ -1,7 +1,12 @@
 //Do this as soon as the DOM is ready
 $(document).ready(function() {
 
-    $.getJSON("http://demos.fmeserver.com.s3.amazonaws.com/server-demo-config.json", function(config) {
+  if (location.protocol != 'https:')
+    {
+      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+
+    $.getJSON("https://demos.fmeserver.com/server-demo-config.json", function(config) {
         $('#loadingImage').hide();
         initialize(config.initObject);
     });
