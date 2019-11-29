@@ -6,13 +6,14 @@ if (location.protocol != 'https:')
 
 //Do this as soon as the DOM is ready
 $(document).ready(function() {
-
-
-
-    $.getJSON("https://demos.fmeserver.com/server-demo-config.json", function(config) {
-        $('#loadingImage').hide();
-        initialize(config.initObject);
-    });
+  $('#loadingImage').hide();
+  config = {
+  "initObject" : {
+    "server": "https://demos-safe-software.fmecloud.com",
+    "token": "568c604bc1f235bbe137c514e7c61a8436043070"
+  }
+};
+  initialize(config.initObject);
 
 });
 
