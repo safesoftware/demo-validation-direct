@@ -225,7 +225,7 @@ var BuildForm = {
 		var resultStatus = $('<div id="resultStatus" />');
 
 		if (isSuccess){;
-
+      console.log(result);
 			resultStatus.append(result);
 		}
 		else{
@@ -243,7 +243,9 @@ var BuildForm = {
 			resultStatus.append('<p class="errorNote">Use the back arrow to return to the start page.</p>');
 		}
 
-		$('#results').append(resultStatus);
+  //  $('#results').html(result);
+    $('body').html(result);
+
 	},
 
 	buildParams : function(json){

@@ -1,11 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
-body { font-family: 'Source Sans Pro', sans-serif; }
-
-#banner {
+/* #banner {
   width: 100%;
   height: 220px;
   background-image: url('../img/bg-img.jpg');
+} */
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+	background-color: #505050;
+
+}
+
+#mainPage{
+	background-color: #505050;
+	height: 100%;
+}
+
+.white{
+	color:white;
+}
+
+.white a:link{
+	color:#f57f17;
 }
 
 .fileName{
@@ -48,12 +66,6 @@ body { font-family: 'Source Sans Pro', sans-serif; }
   margin-bottom: 20px;
 }
 
-.results{
-  font-size: 25px;
-  font-style: bold;
-  height: 452px;
-  text-align: center;
-}
 
 .loadingImage{
 
@@ -111,3 +123,7 @@ body { font-family: 'Source Sans Pro', sans-serif; }
 dl {
   clear: both;
 }
+ #button {
+	 background-color: #f57f17;
+	 background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f57f17), to(#f57f17));
+ }
