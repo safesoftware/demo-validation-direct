@@ -242,9 +242,8 @@ var BuildForm = {
 			resultStatus.append('<br/>');
 			resultStatus.append('<p class="errorNote">Use the back arrow to return to the start page.</p>');
 		}
-
-  //  $('#results').html(result);
-    $('body').html(result);
+    $('#results').html(result);
+    //$('body').html(result);
 
 	},
 

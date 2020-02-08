@@ -26,6 +26,10 @@ body {
 	color:#f57f17;
 }
 
+a:visited {
+	color: #f57f17;
+}
+
 .fileName{
   height:27px;
   padding-top: 13px;
@@ -34,6 +38,7 @@ body {
 .progress {
   height:20px;
   margin-bottom:0;
+	color: orange;
 }
 
 .progressBar {
@@ -126,4 +131,8 @@ dl {
  #button {
 	 background-color: #f57f17;
 	 background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f57f17), to(#f57f17));
+ }
+
+ .progress-success.progress-striped .bar, .progress-striped.bar-success {
+	 background-color: #f57f17;
  }
