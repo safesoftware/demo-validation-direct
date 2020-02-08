@@ -107,8 +107,13 @@ var BuildForm = {
 				elemName = elemName.replace(/[.\(\)]/g, '');
 				elemName = elemName.split(' ').join('');
 
-				var test = 'stop';
         BuildForm.submit();
+
+        console.log(data);
+        console.log(data.context);
+        data.context.empty();
+        $('#dropText').show();
+        $('.fileinput-button').show();
 			},
 
 			fail : function(e, data) {
@@ -120,7 +125,7 @@ var BuildForm = {
 				});
 			},
 
-	        dragover : function(e, data){
+	   dragover : function(e, data){
 	      		//going to use this to change look of 'dropzone'
 	      		//when someone drags a file onto the page
 				var dropZone = $('#dropzone');
@@ -214,18 +219,10 @@ var BuildForm = {
 		//hide loading image
 		$('#loadingImage').hide();
 
-    //hide upload area
-    $('#dropzone').hide();
-    $('#submitToServer').hide();
-
-		//show back button
-		$('#back').show();
-
 		//get the JSON response from the Server and displays information on the page
-		var resultStatus = $('<div id="resultStatus" />');
+		var resultStatus = $('<hr/> ');
 
 		if (isSuccess){;
-      console.log(result);
 			resultStatus.append(result);
 		}
 		else{
@@ -242,8 +239,7 @@ var BuildForm = {
 			resultStatus.append('<br/>');
 			resultStatus.append('<p class="errorNote">Use the back arrow to return to the start page.</p>');
 		}
-    $('#results').html(result);
-    //$('body').html(result);
+    $('#results').html(resultStatus);
 
 	},
 
